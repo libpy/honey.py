@@ -1,0 +1,23 @@
+---
+{
+  'layout': 'default',
+  'title': 'Archive'
+}
+---
+<article>
+  <h2 class="title">Archive</h2>
+  <div class="space"></div>
+
+  {% for year in set([ p.date.year for p in site.posts ]) %}
+  <h4 class="underline">{{ year }}</h4>
+  
+  <div style="padding:0 2em">
+    {% for post in filter(lambda p: p.date.year == year, site.posts) %}
+    <p style="margin-top:1em">
+      <a href="{{ site.config.basedir }}{{ post.url }}">{{ post.title }}</a>
+      (<time datetime="{{ post.date.strftime('%Y-%m-%d') }}">{{ post.date.strftime('%b %d') }}</time>)
+    </p>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</article>

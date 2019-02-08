@@ -1,0 +1,85 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  {% if 'title' in locals() %}
+  <title>{{ title }}</title>
+  {% else %}
+  <title>{{ site.config.title }}</title>
+  {% endif %}
+  {% if 'description' in locals() %}
+  <meta name="description" content="{{ description }}">
+  {% endif %}
+  {% if 'keywords' in locals() %}
+  <meta name="keywords" content="{{ keywords }}">
+  {% endif %}
+  {% if 'author' in site.config %}
+  <meta name="author" content="{{ site.config.author }}">
+  {% endif %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="alternate" href="{{ site.config.basedir }}feed.atom" type="application/atom+xml" title="{{ site.config.title }} - Atom">
+  <link rel="stylesheet/less" type="text/css" href="{{ site['config']['basedir'] }}assets/css/style.less">
+  <script src="{{ site.config.basedir }}assets/js/less.min.js" ></script>
+  <meta name="generator" content="{{ site.config.generator }}">
+</head>
+<body>
+  <header>
+    <h1><a href="{{ site.config.basedir }}">{{ site.config.title }}</a></h1>
+    <nav>
+      <ul>
+        <li><a href="{{ site.config.basedir }}">Home</a></li>
+        <li><a href="{{ site.config.basedir }}archive.html">Archive</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="wrapper">
+    <div id="main">
+      <div id="content">
+        {{ content }}
+      </div>
+
+      <div id="sidebar">
+        <div class="widget">
+          <h3>About me</h3>
+          <img src="{{ site.config.basedir }}assets/media/profile.jpg">
+          <p>Welcome to the honey.py with ThemePlain.</p>
+        </div>
+        <div class="widget">
+          <h3>Recent posts</h3>
+          <ul>
+            {% for post in sorted(site.posts, key=lambda p:p.date, reverse=True)[:10] %}
+            <li><a href="{{ site.config.basedir }}{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="widget">
+          <h3>Tags</h3>
+          <ul>
+            {% for tag in site.config.tags %}
+            <li><a href="{{ site.config.basedir }}tags/{{ tag }}.html">{{ tag }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="widget">
+          <h3>Categories</h3>
+          <ul>
+            {% for category in site.config.categories %}
+            <li><a href="{{ site.config.basedir }}categories/{{ category }}.html">{{ category }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrapper">
+      <p>Copyright &copy; {{ site.config.date.year }} {{ site.config.author }} All Rights Reserved.</p>
+      <p>ThemePlain &dash; Powered by {{ site.config.generator_link }}</p>
+    </div>
+  </footer>
+</body>
+</html>

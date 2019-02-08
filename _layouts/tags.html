@@ -1,0 +1,20 @@
+---
+{
+  'layout': 'default'
+}
+---
+<article>
+  <h2 class="title">{{ title }}</h2>
+
+  {% for post in sorted(posts, key=lambda p:p.date, reverse=True) %}
+  <h3>
+    <a href="{{ site.config.basedir }}{{ post.url }}">{{ post.title }}</a>
+    (<time datetime="{{ post.date.strftime('%Y-%m-%d') }}">{{ post.date.strftime('%b %d') }}</time>)
+  </h3>
+  {% if 'description' in post %}
+  <p style="padding-left:1em">{{ post.description }}</p>
+  {% endif %}
+
+  <div class="space"></div>
+  {% endfor %}  
+</article>

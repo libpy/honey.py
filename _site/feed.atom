@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>title</title>
+  <id>https://example.com/</id>
+  <updated>2019-02-08T14:18:52.764803Z</updated>
+  <author>
+    <name>yourname</name>
+  </author>
+  <link rel="self" href="https://example.com/feed.atom"></link>
+  <link rel="alternate" href="https://example.com/"></link>
+  
+  <entry>
+    <title>PlainTheme</title>
+    <id>2019/02/02/plain.html</id>
+    <link rel="alternate" href="https://example.com/2019/02/02/plain.html"></link>
+    <updated>2019-02-02T00:00:00Z</updated>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello, honey.py</title>
+    <id>2019/02/01/hello.html</id>
+    <link rel="alternate" href="https://example.com/2019/02/01/hello.html"></link>
+    <updated>2019-02-01T00:00:00Z</updated>
+    
+  </entry>
+  
+</feed>

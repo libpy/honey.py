@@ -1,0 +1,26 @@
+---
+{
+}
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>{{ site.config.title }}</title>
+  <id>{{ site.config.url }}/</id>
+  <updated>{{ site.config.date.isoformat() + 'Z' }}</updated>
+  <author>
+    <name>{{ site.config.author }}</name>
+  </author>
+  <link rel="self" href="{{ site.config.url }}{{ site.config.basedir }}feed.atom"></link>
+  <link rel="alternate" href="{{ site.config.url }}{{ site.config.basedir }}"></link>
+  {% for post in site.posts %}
+  <entry>
+    <title>{{ post.title }}</title>
+    <id>{{ post.url }}</id>
+    <link rel="alternate" href="{{ site.config.url }}{{ site.config.basedir }}{{ post.url }}"></link>
+    <updated>{{ post.date.isoformat() + 'Z' }}</updated>
+    {% if 'description' in post %}
+    <content type="xhtml">{{ post.description }}</content>
+    {% endif %}
+  </entry>
+  {% endfor %}
+</feed>

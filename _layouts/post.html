@@ -1,0 +1,41 @@
+---
+{
+  'layout': 'default'
+}
+---
+<article>
+  <h2><a href="{{ url }}">{{ title }}</a></h2>
+  <time datetime="{{ date.strftime('%Y-%m-%d') }}">{{ date.strftime('%B %d, %Y') }}</time>
+  <div class="space"></div>
+  
+  {{ content }}
+
+  {% if 'category' in locals() or ('tags' in locals() and tags) %}
+  <hr>
+  {% endif %}
+  {% if 'category' in locals() %}
+  <ul class="category">
+    <li>Category:</li>
+    <li><a href="{{ site.config.basedir }}categories/{{ category }}.html">{{ category }}</a></li>
+  </ul>
+  {% endif %}
+  {% if 'tags' in locals() and tags %}
+  <ul class="tags">
+    <li>Tags:</li>
+    {% for tag in tags %}
+    <li><a href="{{ site.config.basedir }}tags/{{ tag }}.html">{{ tag }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</article>
+
+<article class="pagination">
+  <ul>
+    <li>
+      {% if 'previous' in locals() %}<a href="{{ site.config.basedir }}{{ previous['url'] }}">&laquo; Prev</a>{% endif %}
+    </li>
+    <li>
+      {% if 'next' in locals() %}<a href="{{ site.config.basedir }}{{ next['url'] }}">Next &raquo;</a>{% endif %}
+    </li>
+  </ul>
+</article>
