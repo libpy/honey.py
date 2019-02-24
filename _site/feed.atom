@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>title</title>
   <id>https://example.com/</id>
-  <updated>2019-02-08T14:18:52.764803Z</updated>
+  <updated>2019-02-24T22:49:34.555834Z</updated>
   <author>
     <name>yourname</name>
   </author>
@@ -10,7 +10,7 @@
   <link rel="alternate" href="https://example.com/"></link>
   
   <entry>
-    <title>PlainTheme</title>
+    <title>Plain</title>
     <id>2019/02/02/plain.html</id>
     <link rel="alternate" href="https://example.com/2019/02/02/plain.html"></link>
     <updated>2019-02-02T00:00:00Z</updated>
